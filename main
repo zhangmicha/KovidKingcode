@@ -1,0 +1,43 @@
+#include <iostream>
+#include <ctime>
+using namespace std;
+int main() {
+    int tiles(0), effect; //declare variable
+    cout << "This program gives you what effects the chance tiles have," << endl; //give instructions to user
+    cout << "at the beginning of your turn input the number of chance tiles you control" << endl;
+    cout << "to end this program input -1 for the number of tiles you control" << endl;
+    while(tiles>=0) //checks tiles as a way to end the program
+    {
+        cout << "How many Chance tiles do you control?" << endl;
+        cin >> tiles; //user inputs number of tiles they control
+        srand(time(NULL)); //set random seed
+        while(tiles > 0) //loops for however many tiles you control
+        {
+            effect = rand()%19; //gives a random number
+            switch(effect) //outputs effect based on random number
+            {
+                case 0: cout << "Remove 3 cards in play from the player with the most points. If there are players tied for the most points, remove 2 from each instead." << endl; cout << endl; break;
+                case 1: cout << "Remove any 2 cards from play." << endl; cout << endl; break;
+                case 2: cout << "You may put down two extra cards this turn." << endl; cout << endl; break;
+                case 3: cout << "You may put and extra card down this turn, if you have the least or are tied for the least amount of points, draw 5 cards and discard 5 cards." << endl; cout << endl; break;
+                case 4: cout << "Opponent with the most points discards their hand. If players are tied for the most points, discard 3 from each instead." << endl; cout << endl; break;
+                case 5: cout << "Draw 3 cards." << endl; cout << endl; break;
+                case 6: cout << "Draw until you have 5 cards in hand." << endl; cout << endl; break;
+                case 7: cout << "For the rest of the game draw 1 extra card at the beginning of your turn." << endl; cout << endl; break;
+                case 8: cout << "Opponent with the most points loses 3 points. If players are tied for the most points, each of them lose 1 instead." << endl; cout << endl; break; case 9: cout << "Each opponent loses 1 point." << endl; cout<< endl; break;
+                case 10: cout << "Gain 2 points." << endl; cout << endl; break;
+                case 11: cout << "Gain points until you are tied with the player with the most points." << endl; cout << endl; break;
+                case 12: cout << "Take a card from your deck and from where you are sitting, throw it onto the board. Any card it touches when it lands gets removed from the game." << endl; cout << endl; break;
+                case 13: cout << "Target opponent chooses a number between 4-6, if you guess correctly put down that many cards." << endl; cout << endl; break;
+                case 14: cout << "Choose an opponent and for the rest of the game if you ask a question and they answer it, you can draw a card" << endl; cout << endl; break;
+                case 15: cout << "Target opponent chooses a number between 4-6, if you guess correctly, draw that many cards" << endl; cout << endl; break;
+                case 16: cout << "An opponent of your choice must compose and recite a haiku in 45 seconds or less or lose 3 points." << endl; cout << endl; break;
+                case 17: cout << "An opponent of your choice chooses an object. You must eat that object, if you do target opponent loses 3 points and you gain one." << endl; cout << endl; break;
+                case 18: cout << " Target opponent chooses a number between 1-3, if you guess correctly, gain that many points." << endl; cout << endl; break;
+                default: cout << "well, we messed up .... oops" << endl; cout << endl; break;
+            }
+            tiles--;
+        }
+    }
+    cout << "Thank you for playing!" << endl;
+}
